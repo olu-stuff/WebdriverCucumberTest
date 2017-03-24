@@ -5,7 +5,7 @@
 .classpath
 .project
 .settings/
-bbcFood/src/test/java/com/reports
+bbcFood/src/test/java/com/reports/*
 
 # Intellij
 .idea/
