@@ -26,18 +26,19 @@ public class DriverFactory {
 	        if(browser.equalsIgnoreCase("firefox")){
 	            driver = new FirefoxDriver();
 	            driver.manage().window().maximize();
-	        }else if(browser.equalsIgnoreCase("chrome")) {
-	        	 System.setProperty("webdriver.chrome.driver", "C:\\Users\\olugboyega.aseru\\workspace\\bbcFood\\src\\test\\java\\resources\\drivers\\chromedriver.exe");
+	        }else if(browser.equalsIgnoreCase("chrome")) {   
+	        	 System.setProperty("webdriver.chrome.driver", "src/test/java/resources/drivers/chromedriver");
+	    //    	 System.setProperty("webdriver.chrome.driver", "C:\\Users\\olugboyega.aseru\\workspace\\bbcFood\\src\\test\\java\\resources\\drivers\\chromedriver.exe");
 	            driver = new ChromeDriver();
 	            driver.manage().window().maximize();
 	        }else if(browser.equalsIgnoreCase("ie")) {
-	            System.setProperty("webdriver.ie.driver", "C:\\Users\\olugboyega.aseru\\workspace\\bbcFood\\src\\test\\java\\resources\\drivers\\IEDriverServer.exe");
+	            System.setProperty("webdriver.ie.driver", "src/test/java/resources/drivers/IEDriverServer.exe");
 	            DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
 	            caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
 	            driver = new InternetExplorerDriver(caps);  
 	            driver.manage().window().maximize();
 	        }else if(browser.equalsIgnoreCase("edge")){
-	        	System.setProperty("webdriver.edge.driver", "C:\\Users\\olugboyega.aseru\\workspace\\bbcFood\\src\\test\\java\\resources\\drivers\\MicrosoftWebDriver.exe");
+	        	System.setProperty("webdriver.edge.driver", "src/test/java/resources/drivers/MicrosoftWebDriver.exe");
 	        	EdgeOptions options = new EdgeOptions();    
 	        	options.setPageLoadStrategy("eager"); 
 	        	driver = new EdgeDriver(options);;  
