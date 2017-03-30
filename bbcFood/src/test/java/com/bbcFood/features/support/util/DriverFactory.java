@@ -27,8 +27,8 @@ public class DriverFactory {
 	            driver = new FirefoxDriver();
 	            driver.manage().window().maximize();
 	        }else if(browser.equalsIgnoreCase("chrome")) {   
-	        	 System.setProperty("webdriver.chrome.driver", "src/test/java/resources/drivers/chromedriver");
-	    //    	 System.setProperty("webdriver.chrome.driver", "C:\\Users\\olugboyega.aseru\\workspace\\bbcFood\\src\\test\\java\\resources\\drivers\\chromedriver.exe");
+	        //	 System.setProperty("webdriver.chrome.driver", "src/test/java/resources/drivers/chromedriver");
+	        	 System.setProperty("webdriver.chrome.driver", "src/test/java/resources/drivers/chromedriver.exe");
 	            driver = new ChromeDriver();
 	            driver.manage().window().maximize();
 	        }else if(browser.equalsIgnoreCase("ie")) {

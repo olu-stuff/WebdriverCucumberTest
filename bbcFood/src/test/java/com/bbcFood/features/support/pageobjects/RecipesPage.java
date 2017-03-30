@@ -10,40 +10,43 @@ import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 
 public class RecipesPage {
-	
+
 	private WebDriver driver;
-	
-	public RecipesPage(WebDriver driver){
+
+	public RecipesPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	@FindBy (css = "#sub-heading")
-	private WebElement subHeading;
-	
-	@FindBy (css = "#filter-results")
-	public WebElement filterResults;
-	
 
-	@FindBys ({
-	@FindBy(css =".article.with-image"),
-	@FindBy(css = "h3")
-	})
+	@FindBy(css = "#sub-heading")
+	private WebElement subHeading;
+
+	@FindBy(css = "#filter-results")
+	public WebElement filterResults;
+
+	@FindBys({ 
+		@FindBy(css = ".recipe-collections__list"), 
+		@FindBy(css = ".recipe-collections__title-link") })
+	public List<WebElement> collections;
+
+	@FindBys({ @FindBy(css = ".article.with-image"), @FindBy(css = "h3") })
 	public List<WebElement> resultItemTitle;
-	
-	
-	public List<String> getQueryResults(){
+
+	public List<String> getQueryResults() {
 		List<String> resultsListText = new ArrayList<String>();
-		for(WebElement item : resultItemTitle) {
+		for (WebElement item : resultItemTitle) {
 			resultsListText.add(item.getText().toLowerCase());
-			}
+		}
 		return resultsListText;
 	}
-	
-	
-	public void verifyResultsPage(){
+
+	public void verifyResultsPage() {
 		System.out.println(driver.getTitle());
-		
 	}
-	
+
+	public void selectAnyCollection() {
+		int random = (int) (Math.random() * collections.size() + 0);
+		collections.get(random).click();
+	}
+
 }
